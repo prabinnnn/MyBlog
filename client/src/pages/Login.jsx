@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { LogoImg } from "../assets/logo.png";
 function Login() {
   return (
     <>
@@ -11,7 +13,7 @@ function Login() {
               <div className="card-body">
                 <div className="row d-flex justify-content-center align-items-center">
                   <img
-                    src="https://previews.123rf.com/images/mrgao/mrgao1502/mrgao150200011/36963437-red-blog-app-icon-illustration-on-white-background.jpg"
+                    src={LogoImg}
                     alt="Blog Icon"
                     style={{ width: "75px" }}
                   />
@@ -26,12 +28,12 @@ function Login() {
                       <input type="password" className="form-control" />
                     </div>
                     <div className="mb-3 d-flex flex-row-reverse">
-                      <a
-                        href="/ForgetPassword"
+                      <Link
+                        to="/ForgetPassword"
                         className="text-decoration-none"
                       >
                         Forget Password?
-                      </a>
+                      </Link>
                     </div>
                     <div className="d-grid col-6 mx-auto">
                       <button type="submit" className="btn btn-primary btn-lg">
@@ -41,9 +43,9 @@ function Login() {
                   </form>
                   <hr />
                   <div className="d-flex justify-content-center">
-                    <a href="/Register" className="text-decoration-none">
+                    <Link to="/Register" className="text-decoration-none">
                       Register
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
