@@ -12,11 +12,7 @@ function Login() {
             <div className="card shadow">
               <div className="card-body">
                 <div className="row d-flex justify-content-center align-items-center">
-                  <img
-                    src={LogoImg}
-                    alt="Blog Icon"
-                    style={{ width: "75px" }}
-                  />
+                  <img src={LogoImg} style={{ maxWidth: "100px" }} />
                   <h2 className="text-center mt-2">Login</h2>
                   <form className="mb-3">
                     <div className="mb-3">
