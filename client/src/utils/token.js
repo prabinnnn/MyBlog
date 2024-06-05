@@ -1,5 +1,9 @@
 export const setTokens=(payload)=>{
-    return localStorage.setItem("acess_token",JSON.stringify(payload))
+    return localStorage.setItem("access_token",JSON.stringify(payload))
 };
-export const getToken=()=>{};
-export const removeToken=()=>{};
+export const getToken=()=>{
+    return localStorage.getItem("access_token")
+};
+export const removeToken=()=>{
+    return localStorage.removeItem("access_token")
+};
