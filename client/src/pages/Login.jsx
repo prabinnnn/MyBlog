@@ -7,10 +7,15 @@ function Login() {
     email:"",
     password:"",
   })
+  const {error,SetError}=useState("")
   const handlelogin=async(e)=>{
+   try{
     e.preventdefault();
     const result =await login(payload)
     console.log(result)
+   }
+   catch(e)
+   {SetError(e)}
   };
   return (
     <>
