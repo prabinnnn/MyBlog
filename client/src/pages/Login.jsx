@@ -1,7 +1,17 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
+import { login } from "../Services/users";
 function Login() {
+  const [payload,SetPayload]=useState({
+    email:"",
+    password:"",
+  })
+  const handlelogin=useCallback(async()=>{
+    const result =await login(payload)
+    console.log(result)
+  },[payload]);
+  useEffect(()=>{handlelogin},[])
   return (
     <>
       <div
@@ -18,11 +28,15 @@ function Login() {
                   <form className="mb-3">
                     <div className="mb-3">
                       <label className="form-label">Email address</label>
-                      <input type="email" className="form-control" />
+                      <input type="email" className="form-control"  onChange={(e) => SetPayload((prev) => {
+      return { ...prev, email: e.target.value };
+    }) }/>
                     </div>
                     <div className="mb-3">
                       <label className="form-label">Password</label>
-                      <input type="password" className="form-control" />
+                      <input type="password" className="form-control"  onChange={(e) => SetPayload((prev) => {
+      return { ...prev, password: e.target.value };
+    })}/>
                     </div>
                     <div className="mb-3 d-flex flex-row-reverse">
                       <Link
