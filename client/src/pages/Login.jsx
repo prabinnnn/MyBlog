@@ -23,13 +23,15 @@ function Login() {
                   <form className="mb-3">
                     <div className="mb-3">
                       <label className="form-label">Email address</label>
-                      <input type="email" className="form-control"  onChange={(e) => {SetPayload((prev) => {
+                      <input type="email" className="form-control"  onChange={(e) => SetPayload((prev) => {
       return { ...prev, email: e.target.value };
     }) }/>
                     </div>
                     <div className="mb-3">
                       <label className="form-label">Password</label>
-                      <input type="password" className="form-control" />
+                      <input type="password" className="form-control"  onChange={(e) => SetPayload((prev) => {
+      return { ...prev, password: e.target.value };
+    })}/>
                     </div>
                     <div className="mb-3 d-flex flex-row-reverse">
                       <Link
