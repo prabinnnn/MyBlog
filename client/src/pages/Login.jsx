@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
 import { login } from "../Services/users";
@@ -7,8 +7,11 @@ function Login() {
     email:"",
     password:"",
   })
-  const handlelogin=()=>{}
-  useEffect(()=>{},[])
+  const handlelogin=useCallback(async()=>{
+    const result =await login(payload)
+    console.log(result)
+  },[payload]);
+  useEffect(()=>{handlelogin},[])
   return (
     <>
       <div
