@@ -2,6 +2,11 @@ import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
 function Login() {
+  const [payload,SetPayload]=useState({
+    email:"",
+    password:"",
+  })
+  useEffect(()=>{},[])
   return (
     <>
       <div
@@ -18,7 +23,9 @@ function Login() {
                   <form className="mb-3">
                     <div className="mb-3">
                       <label className="form-label">Email address</label>
-                      <input type="email" className="form-control" />
+                      <input type="email" className="form-control"  onChange={(e) => {SetPayload((prev) => {
+      return { ...prev, email: e.target.value };
+    }) }/>
                     </div>
                     <div className="mb-3">
                       <label className="form-label">Password</label>
