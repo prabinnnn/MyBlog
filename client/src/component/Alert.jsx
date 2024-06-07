@@ -1,5 +1,5 @@
 import Alert from "react-bootstrap"
-const Notify = ({variant,msg}) => {
+const Notify = ({variant= "danger" , msg}) => {
   return (
     <><Alert key={variant} variant={variant}>
    {msg}
