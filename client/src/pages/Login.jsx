@@ -2,15 +2,26 @@ import { useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
 import { login } from "../Services/users";
+import Notify from "../component/Alert";
 function Login() {
   const [payload,SetPayload]=useState({
     email:"",
     password:"",
   })
+  const [error,setError]=useEffect("");
   const handlelogin=(async()=>{
-    const result =await login(payload)
-    console.log(result)
-  });
+  try{
+    e.preventDefault();  
+    const {data} =await login(payload)
+    if(data?.data)
+    {console.log(data.data)}
+  }
+  catch(e){
+    setError(e)
+  }
+finally(){
+  setTimeout(()=>{},3000)
+}});
   return (
     <>
       <div
@@ -24,6 +35,7 @@ function Login() {
                 <div className="row d-flex justify-content-center align-items-center">
                   <img src={LogoImg} style={{ maxWidth: "100px" }} />
                   <h2 className="text-center mt-2">Login</h2>
+                  {error && <Notify msg={error}/>}
                   <form className="mb-3">
                     <div className="mb-3">
                       <label className="form-label">Email address</label>
