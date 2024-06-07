@@ -1,16 +1,24 @@
-import { useState,useEffect} from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
 import { login } from "../Services/users";
+import Notify from "../component/Alert";
+
 function Login() {
   const [payload,SetPayload]=useState({
     email:"",
     password:"",
   })
-  const handlelogin=(async()=>{
-    const result =await login(payload)
-    console.log(result)
-  });
+  const {error,SetError}=useState("")
+  const handlelogin=async(e)=>{
+   try{
+    e.preventdefault();
+    const {data} =await login(payload)
+    console.log(data)
+   }
+   catch(e)
+   {SetError(e)}
+  };
   return (
     <>
       <div
@@ -24,16 +32,17 @@ function Login() {
                 <div className="row d-flex justify-content-center align-items-center">
                   <img src={LogoImg} style={{ maxWidth: "100px" }} />
                   <h2 className="text-center mt-2">Login</h2>
-                  <form className="mb-3">
+                  {error && <Notify msg = {error}/>}
+                  <form className="mb-3" onSubmit={(e)=>handlelogin(e)}>
                     <div className="mb-3">
                       <label className="form-label">Email address</label>
-                      <input type="email" required className="form-control"  onChange={(e) => SetPayload((prev) => {
+                      <input type="email" className="form-control" required  onChange={(e) => SetPayload((prev) => {
       return { ...prev, email: e.target.value };
     }) }/>
                     </div>
                     <div className="mb-3">
                       <label className="form-label">Password</label>
-                      <input type="password" className="form-control"  onChange={(e) => SetPayload((prev) => {
+                      <input type="password" className="form-control" required  onChange={(e) => SetPayload((prev) => {
       return { ...prev, password: e.target.value };
     })}/>
                     </div>
@@ -46,7 +55,7 @@ function Login() {
                       </Link>
                     </div>
                     <div className="d-grid col-6 mx-auto">
-                      <button type="submit" className="btn btn-primary btn-lg" onClick={handlelogin}>
+                      <button type="submit" className="btn btn-primary btn-lg" >
                         Login
                       </button>
                     </div>
