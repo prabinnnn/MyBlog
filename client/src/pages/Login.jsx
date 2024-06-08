@@ -9,7 +9,7 @@ function Login() {
     password:"",
   })
   const [error,setError]=useEffect("");
-  const handlelogin=(async()=>{
+  const handlelogin=async(e)=>{
   try{
     e.preventDefault();  
     const {data} =await login(payload)
@@ -19,9 +19,9 @@ function Login() {
   catch(e){
     setError(e)
   }
-finally(){
+finally {
   setTimeout(()=>{},3000)
-}});
+}};
   return (
     <>
       <div
