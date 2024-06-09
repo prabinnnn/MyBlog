@@ -1,9 +1,9 @@
-import {  useState } from "react";
+import {  useState , useEffect} from "react";
 import { Link,useNavigate } from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
 import { login } from "../Services/users";
 import Notify from "../component/Alert";
-import {setTokens} from "../utils/token"
+import {setTokens,getToken} from "../utils/token"
 function Login() {
   const navigate=useNavigate();
   const [payload,SetPayload]=useState({
@@ -30,6 +30,10 @@ function Login() {
   }
 
   };
+useEffect(()=>{
+const token=getToken();
+if (token) navigate("/")
+},[navigate])
   return (
     <>
       <div
