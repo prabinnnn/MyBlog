@@ -1,9 +1,11 @@
 import {  useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
 import { login } from "../Services/users";
 import Notify from "../component/Alert";
+import {setTokens} from "../utils/token"
 function Login() {
+  const navigate=useNavigate();
   const [payload,SetPayload]=useState({
     email:"",
     password:"",
@@ -14,14 +16,17 @@ function Login() {
       e.preventDefault();
     const {data} =await login(payload)
   if(data?.data){
-    console.log(data.data)
+    setTokens(data.data)
+    navigate("/")
   }}
   catch(e)
   {
     SetError(e)
   }
   finally{
-    setTimeout(()=>{},3000)
+    setTimeout(()=>{
+      setTimeout("")
+    },3000)
   }
 
   };
