@@ -8,3 +8,8 @@ import { APIs} from "../constants";
       'Content-Type': 'multipart/form-data'
     }},)
 } ;
+export const generateFPToken=(payload)=>{
+   return instance.post(APIs.USERS+"/register",payload,{headers: {
+      'Content-Type': 'multipart/form-data'
+    }},)
+} ;

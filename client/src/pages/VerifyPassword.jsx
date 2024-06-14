@@ -28,7 +28,7 @@ function verifyPassword() {
                     </div>
                     <div className="d-grid col-6 mx-auto">
                       <button type="submit" className="btn btn-primary btn-lg" >
-                        Generate Token
+                        Reset Password
                       </button>
                     </div>
                   </form>
