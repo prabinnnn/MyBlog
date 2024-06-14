@@ -10,6 +10,8 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Blogs from "./pages/Blogs";
 import BlogsDetails from "./pages/BlogsDetails";
+import Blogslist from "./pages/admin/blogs/list";
+import Userlist from "./pages/admin/users/list";
 function App() {
   return (
     <>
@@ -26,7 +28,9 @@ function App() {
         <Route path="contact" element={<Contact/>} />
         </Route>
         <Route path="/admin" element={<AdminLayouts/>}>
-        <Route path="blogs" element={<Homepage/>} />
+        <Route index element={<Blogslist/>}/>
+        <Route path="blogs" element={<Blogslist/>} />
+        <Route path="users" element={<Userlist/>} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
