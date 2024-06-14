@@ -14,7 +14,9 @@ try{    e.preventDefault()
   if(data)
     {
       setMessage(data?.data)
-      navigate("/verify-Password",{state:{email}})
+      setTimeout(() => {
+        navigate("/verify-Password",{state:{email}})
+      },3000);
     }
 }
 catch(e)

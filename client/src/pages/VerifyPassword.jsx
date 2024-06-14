@@ -1,6 +1,22 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link ,useNavigate,useLocation} from "react-router-dom";
 import { LogoImg } from "../assets/logo.png";
 function verifyPassword() {
+    const navigate= useNavigate();
+    const Location =useLocation();
+    const[payload,setPayload]=useState(()=>{
+        email="",
+        token="",
+        NewPassword="",
+    })
+    useEffect(()=>{
+        const {state}=location;
+        if(!state)
+            {
+                navigate("/login");
+            }
+    },[location,navigate])
+
   return (
     <div
         className="d-flex justify-content-center align-items-center vh-100"
