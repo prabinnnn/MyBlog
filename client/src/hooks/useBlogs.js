@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react"
 import { publishedBlogs } from "../Services/blogs";
-const useBlogs = () => {
+const useBlogs = ({Title,Page,Limit}) => {
     const [data,setData]=useState([]);
     const [error,setError]=useState('');
     const [loading,setLoading]=useState(false);
@@ -9,8 +9,8 @@ const useBlogs = () => {
 const FeatchedData=async()=>{
     try{
         setLoading(true);
-        const {data}=await publishedBlogs();
-        setMessage(message)
+        const {data}=await publishedBlogs({Title,Page,Limit});
+        setMessage(message);
         setData(data);
     }
     catch(e)
@@ -22,10 +22,12 @@ finally{
     setLoading(false);
         setTimeout(() => {
           setError("");
-          setMsg("");
+          setMessage("");
         }, 3000);
-}    };
-FeatchedData(),})
+} 
+   };
+FeatchedData();}
+,[Title,Page,Limit]);
 return {data,error,loading,message
 }
 }
