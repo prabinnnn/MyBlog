@@ -5,7 +5,9 @@ const UserLayouts = () => {
   return (
     <div>
     <UserNavbar/>
- <Outlet/>
+    <main className="container-fluid" style={{height:"405px"}}>
+    <Outlet/>
+    </main>
     <UserFooter/>
     </div>
   )

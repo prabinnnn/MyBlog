@@ -1,11 +1,8 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { register } from "../Services/users";
 import LogoImg from "../assets/logo.png";
-
 import Notify from "../components/Alert";
-
-import { register } from "../services/users";
-
 const Register = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");

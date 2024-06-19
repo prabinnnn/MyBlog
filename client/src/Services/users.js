@@ -9,7 +9,8 @@ import { APIs} from "../constants";
     }},)
 } ;
 export const generateFPToken=(payload)=>{
-   return instance.post(APIs.USERS+"/register",payload,{headers: {
-      'Content-Type': 'multipart/form-data'
-    }},)
+   return instance.post(APIs.USERS+"/generate-fp-token",payload)
+} ;
+export const verifyFPToken=(payload)=>{
+   return instance.post(APIs.USERS+"/verify-fp-token",payload)
 } ;

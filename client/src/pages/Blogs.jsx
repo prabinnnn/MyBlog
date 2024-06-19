@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-
 import { useDebounce } from "../hooks/useDebounce";
 import { useBlogContext } from "../contexts/BlogContext";
-
 import LogoImg from "../assets/logo.png";
 import { BlogLoader } from "../components/Loader";
 import { dateFormatter } from "../utils/date";

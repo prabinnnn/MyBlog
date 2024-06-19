@@ -51,7 +51,8 @@ const UserNavbar = () => {
         </div>
       </Navbar.Collapse>
     </Container>
-  </Navbar></div>
+  </Navbar>
+  </div>
   )
 }
 

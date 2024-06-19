@@ -1,6 +1,6 @@
 import { Dropdown } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LogoImg } from "../assets/logo.png";
+import { logo } from "../assets/logo.png";
 import { removeToken } from "../utils/token";
 const AdminNavbar = () => {
   const navigate=useNavigate();
@@ -9,6 +9,7 @@ const AdminNavbar = () => {
     const result=removeToken();
     if(result)
       {
+        removeToken();
         navigate("/login");
       }
   }
@@ -23,7 +24,7 @@ const AdminNavbar = () => {
             to="/admin"
             className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
           >
-            <img className="img-fluid p-2" src={LogoImg} width={50} />
+            <img className="img-fluid p-2" src={logo} width={50} />
             <span className="fs-4">Blogify</span>
           </Link>
           <hr />
